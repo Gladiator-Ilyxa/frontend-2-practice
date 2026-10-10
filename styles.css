@@ -1,0 +1,568 @@
+/* Сброс и база данных*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1a1a1a;
+  background-color: #f7f7f7;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Заголовок */
+.header {
+  background: #fff;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.header__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+}
+
+.header__logo-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.header__nav {
+  display: flex;
+  gap: 32px;
+}
+
+.header__nav-link {
+  font-size: 15px;
+  color: #555;
+  transition: color 0.2s;
+}
+
+.header__nav-link:hover {
+  color: #1a1a1a;
+}
+
+/* Прогресс бар */
+.progress {
+  background: #fff;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 32px 0;
+}
+
+.progress__container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+}
+
+.progress__step {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.progress__circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.progress__circle--done {
+  background: #8a8a8a;
+}
+
+.progress__circle--active {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+/* Сегмент между шагами */
+.progress__segment {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 8px;
+  margin: 0 8px;
+  position: relative; /* для позиционирования label */
+}
+
+/* Длинная линия */
+.progress__line {
+  flex: 1;
+  height: 3px;
+  background: #d5d5d5;
+  border-radius: 2px;
+}
+
+.progress__line--done {
+  background: #8a8a8a;
+}
+
+.progress__line--active {
+  background: #1a1a1a;
+  height: 4px;
+}
+
+/* Короткое тире */
+.progress__dash {
+  width: 20px;
+  height: 3px;
+  background: #d5d5d5;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.progress__dash--done {
+  background: #8a8a8a;
+}
+
+/* Надпись над активной линией */
+.progress__label {
+  position: absolute;
+  top: -22px;
+  left: 40%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a1a1a;
+  white-space: nowrap;
+}
+
+/* main */
+.main {
+  flex: 1;
+  padding: 40px 0 60px;
+}
+
+.main__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.main__title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.main__title-accent {
+  display: inline-block;
+  width: 48px;
+  height: 10px;
+  background: #d4a843;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* Схема бронирования */
+.booking {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+/* Календарь */
+.calendar {
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.calendar__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.calendar__month {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.calendar__nav {
+  display: flex;
+  gap: 8px;
+}
+
+.calendar__nav-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #f0f0f0;
+  font-size: 14px;
+  color: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+}
+
+.calendar__nav-btn:hover {
+  background: #e0e0e0;
+  color: #1a1a1a;
+}
+
+.calendar__weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.calendar__weekdays span {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #888;
+  padding: 4px 0;
+}
+
+.calendar__days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.calendar__day {
+  text-align: center;
+  padding: 12px 0;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  background: #f0f0f0;
+  color: #1a1a1a;
+  border: 2px solid transparent;
+  min-width: 48px;
+}
+
+.calendar__day:hover {
+  border-color: #ccc;
+}
+
+.calendar__day--muted {
+  color: #bbb;
+  background: transparent;
+  cursor: default;
+}
+
+.calendar__day--muted:hover {
+  border-color: transparent;
+}
+
+/* Выбранный день — чёрная рамка */
+.calendar__day--selected {
+  background: #f0f0f0;
+  border: 2px solid #1a1a1a;
+  font-weight: 700;
+}
+
+.calendar__day--selected:hover {
+  border-color: #1a1a1a;
+}
+
+/* Слот времени */
+.timeslots {
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.timeslots__title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.timeslots__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.timeslots__slot {
+  padding: 16px 16px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a1a;
+  background: #fff;
+  text-align: center;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+
+  /* Фиксированная высота */
+  height: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.timeslots__slot:hover {
+  border-color: #1a1a1a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Выбранный слот — чёрная рамка */
+.timeslots__slot--selected {
+  border: 2.5px solid #1a1a1a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.timeslots__slot--selected:hover {
+  border-color: #1a1a1a;
+}
+
+/* Занятый слот */
+.timeslots__slot--busy {
+  background: #f5f5f5;
+  border-color: #eee;
+  color: #bbb;
+  cursor: not-allowed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.timeslots__slot--busy:hover {
+  border-color: #eee;
+  box-shadow: none;
+  }
+
+.timeslots__slot-label {
+  font-size: 11px;
+  font-weight: 400;
+  color: #ccc;
+}
+
+/* Кнопка */
+.booking__actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn {
+  padding: 14px 40px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.btn--primary {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: #333;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Подвал */
+.footer {
+  background: #2a2a2a;
+  color: #ccc;
+  margin-top: auto;
+}
+
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px 24px;
+}
+
+.footer__top {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 40px;
+}
+
+.footer__logo {
+  width: 48px;
+  height: 48px;
+  background: #fff;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.footer__description {
+  font-size: 14px;
+  color: #999;
+  line-height: 1.6;
+}
+
+.footer__heading {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.footer__contact-item {
+  font-size: 14px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer__icon {
+  font-size: 14px;
+}
+
+.footer__schedule-item {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.footer__bottom {
+  border-top: 1px solid #3a3a3a;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: #777;
+}
+
+.footer__copyright {
+  color: #777;
+}
+
+.footer__privacy {
+  color: #999;
+  transition: color 0.2s;
+}
+
+.footer__privacy:hover {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .booking {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__top {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .header__nav {
+    gap: 16px;
+  }
+
+  .header__nav-link {
+    font-size: 13px;
+  }
+
+  .progress__label {
+    font-size: 12px;
+  }
+}
+.header__logo-img {
+  width: 48x;
+  height: 48px;
+  object-fit: contain;
+}
+
+.footer__logo-img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+/* Нижняя панель */
+.bottom-bar {
+  background: #fff;
+  border-top: 1px solid #e8e8e8;
+  padding: 20px 0;
+  position: sticky;
+  bottom: 0;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.bottom-bar__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.bottom-bar__info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 16px;
+}
+
+.bottom-bar__date {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.bottom-bar__time {
+  color: #888;
+}
+
+.bottom-bar__time::before {
+  content: '•';
+  margin-right: 16px;
+  color: #ccc;
+}

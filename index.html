@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Выбор времени — Барбершоп</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Заголовок -->
+  <header class="header">
+    <div class="header__container">
+      <a href="#" class="header__logo">
+        <img src="images/logo1.jpg" alt="Логотип барбершопа" class="header__logo-img">
+      </a>
+      <nav class="header__nav">
+        <a href="#" class="header__nav-link">Услуги</a>
+        <a href="#" class="header__nav-link">Галерея</a>
+        <a href="#" class="header__nav-link">Команда</a>
+        <a href="#" class="header__nav-link">Отзывы</a>
+        <a href="#" class="header__nav-link">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Прогресс-бар -->
+  <section class="progress">
+    <div class="progress__container">
+
+      <div class="progress__step">
+        <span class="progress__circle progress__circle--done">1</span>
+      </div>
+
+      <div class="progress__segment">
+        <div class="progress__line progress__line--done"></div>
+        <div class="progress__dash progress__dash--done"></div>
+      </div>
+
+      <div class="progress__step">
+        <span class="progress__circle progress__circle--done">2</span>
+      </div>
+
+      <div class="progress__segment">
+        <div class="progress__line progress__line--done"></div>
+        <div class="progress__dash progress__dash--done"></div>
+      </div>
+
+      <div class="progress__step">
+        <span class="progress__circle progress__circle--active">3</span>
+      </div>
+
+      <div class="progress__segment">
+        <div class="progress__line progress__line--active"></div>
+        <div class="progress__dash"></div>
+        <span class="progress__label">Выбор времени</span>
+      </div>
+
+      <div class="progress__step">
+        <span class="progress__circle">4</span>
+      </div>
+
+      <div class="progress__segment">
+        <div class="progress__line"></div>
+        <div class="progress__dash"></div>
+      </div>
+
+      <div class="progress__step">
+        <span class="progress__circle">5</span>
+      </div>
+
+      <div class="progress__segment">
+        <div class="progress__line"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Основное содержимое -->
+  <main class="main">
+    <div class="main__container">
+
+      <h1 class="main__title">
+        <span class="main__title-accent"></span>
+        Выбор доступного времени
+      </h1>
+
+      <div class="booking">
+
+        <!-- Календарь -->
+        <div class="calendar">
+          <div class="calendar__header">
+            <h2 class="calendar__month" id="calendar-month">Июнь 2025</h2>
+            <div class="calendar__nav">
+              <button class="calendar__nav-btn" id="prev-month" aria-label="Предыдущий месяц">&lt;</button>
+              <button class="calendar__nav-btn" id="next-month" aria-label="Следующий месяц">&gt;</button>
+            </div>
+          </div>
+
+          <div class="calendar__weekdays">
+            <span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span>
+          </div>
+
+          <div class="calendar__days" id="calendar-days">
+            <!-- Дни генерируются через JS -->
+          </div>
+        </div>
+
+        <!-- Слоты времени -->
+        <div class="timeslots">
+          <h2 class="timeslots__title">Доступное время</h2>
+
+          <div class="timeslots__grid" id="timeslots-grid">
+            <!-- Слоты генерируются через JS -->
+          </div>
+        </div>
+
+      </div>
+
+      <div class="booking__actions">
+        <button class="btn btn--primary" id="continue-btn">Продолжить</button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Нижняя панель -->
+  <div class="bottom-bar" id="bottom-bar">
+    <div class="bottom-bar__container">
+      <div class="bottom-bar__info">
+        <span class="bottom-bar__date" id="bottom-bar-date">Выберите дату</span>
+        <span class="bottom-bar__time" id="bottom-bar-time">и время</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Подвал -->
+  <footer class="footer">
+    <div class="footer__container">
+
+      <div class="footer__top">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <img src="images/logo1.jpg" alt="Логотип барбершопа" class="footer__logo-img">
+          </div>
+          <p class="footer__description">Дружелюбное описание услуг</p>
+        </div>
+
+        <div class="footer__contacts">
+          <h3 class="footer__heading">КОНТАКТЫ</h3>
+          <p class="footer__contact-item">
+            <span class="footer__icon">📍</span> ул. Садовая, 15, Москва
+          </p>
+          <p class="footer__contact-item">
+            <span class="footer__icon">📞</span> +7 (495) 123-45-67
+          </p>
+        </div>
+
+        <div class="footer__schedule">
+          <h3 class="footer__heading">РЕЖИМ РАБОТЫ</h3>
+          <p class="footer__schedule-item">Пн–Пт: 9:00 – 21:00</p>
+          <p class="footer__schedule-item">Сб–Вс: 10:00 – 19:00</p>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span class="footer__copyright">© 2026. Все права защищены.</span>
+        <a href="#" class="footer__privacy">Политика конфиденциальности</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
